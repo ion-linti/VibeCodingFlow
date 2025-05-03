@@ -10,7 +10,7 @@ description = "Generate, refine and manage code projects via OpenAI LLMs."
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Vibe Genius", email = "dev@vibecodingflow.dev"},
+    {name = "Ion Linti", email = "ionlinti@gmail.com"},
 ]
 requires-python = ">=3.10"
 dependencies = [
