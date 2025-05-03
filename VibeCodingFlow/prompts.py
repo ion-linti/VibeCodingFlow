@@ -1,5 +1,7 @@
 import textwrap
 
+# Original prompt structure with improved clarity and constraints
+
 a = textwrap.dedent
 
 PROMPT_PROMPTIFIER_SYSTEM = a('''
@@ -58,4 +60,3 @@ Project specification:
 ```
 Produce a JSON object mapping each file path to its complete content, strictly following the spec.
 ''')
-

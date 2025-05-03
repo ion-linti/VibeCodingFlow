@@ -1,0 +1,36 @@
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "VibeCodingFlow"
+version = "0.1.0"
+description = "Generate, refine and manage code projects via OpenAI LLMs."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Vibe Genius", email = "dev@vibecodingflow.dev"},
+]
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.10,<2.0",
+    "typer[all]>=0.12",
+    "rich>=13",
+    "platformdirs>=4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.4",
+    "black>=24",
+    "pre-commit>=3",
+]
+
+[project.scripts]
+vibe = "VibeCodingFlow.cli:app"
+
+[tool.hatch.build]
+exclude = ["**/__pycache__", "**/*.py[co]"]
+
