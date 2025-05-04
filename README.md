@@ -133,10 +133,11 @@ Prompt ─▶ GPT-4o ─▶ Spec JSON ─▶ GPT-4o (Code Gen) ─▶ File Write
 - **RAG integration** (retrieve doc snippets for specs)  
 - **Plugin system** (custom generators & verifiers)  
 - **GUI** (Electron/Tauri + Monaco editor)  
-- **Formal verification** (symbolic checks via Prolog/Z3)  
-- **`vibe server`** (local dev server)  
+- **Formal verification** (symbolic checks via Prolog/Z3)    
 - **Test runner** (`vibe test` with pytest/vitest)  
-- **Voice request** (in GUI)
+- **Voice request**
+- **Model choose**
+- **vibe doctor** (env check)
 
 ---
 
