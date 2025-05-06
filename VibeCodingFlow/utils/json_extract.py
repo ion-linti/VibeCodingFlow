@@ -1,26 +1,27 @@
-
-"""Utility to extract the first JSON object from a string fenced in a ```json code block."""
-import json, re
+import json
+import re
 from typing import Any, Dict
-
-JSON_BLOCK_RE = re.compile(r"```json\s*(\{.*?\})\s*```", re.S)
 
 class JSONExtractError(ValueError):
     """Raised when JSON block cannot be found or parsed."""
 
 def extract_json_block(text: str) -> Dict[str, Any]:
-    """Return the JSON object contained in the first ```json fenced block.
+    """Extract the first JSON object from a ```json fenced block.
 
-    Raises
-    ------
-    JSONExtractError
-        If no block found or JSON invalid.
+    Args:
+        text: Input string containing the JSON block.
+
+    Returns:
+        Parsed JSON object as a dictionary.
+
+    Raises:
+        JSONExtractError: If no JSON block is found or JSON is invalid.
     """
-    m = JSON_BLOCK_RE.search(text)
-    if not m:
+    match = re.search(r"```json\s*(\{.*?\})\s*```", text, re.DOTALL)
+    if not match:
         raise JSONExtractError("No JSON block found")
-    block = m.group(1)
+    
     try:
-        return json.loads(block)
+        return json.loads(match.group(1))
     except json.JSONDecodeError as e:
         raise JSONExtractError(f"Invalid JSON: {e}") from e
